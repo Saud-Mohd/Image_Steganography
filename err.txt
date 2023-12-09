@@ -1,0 +1,76 @@
+encode.c: In function ‘do_encoding’:
+encode.c:234:27: warning: passing argument 1 of ‘open_encode_files’ from incompatible pointer type [-Wincompatible-pointer-types]
+     if (open_encode_files(&encInfo) == e_failure)
+                           ^
+encode.c:194:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status open_encode_files(EncodeInfo *encInfo)
+        ^~~~~~~~~~~~~~~~~
+encode.c:243:28: warning: passing argument 1 of ‘check_capacity’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (check_capacity(&encInfo) == e_success)
+                            ^
+In file included from encode.c:3:0:
+encode.h:48:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status check_capacity(EncodeInfo *encInfo);
+        ^~~~~~~~~~~~~~
+encode.c:253:55: warning: passing argument 2 of ‘encode_magic_string’ from incompatible pointer type [-Wincompatible-pointer-types]
+                 if (encode_magic_string(MAGIC_STRING, &encInfo) == e_success)
+                                                       ^
+In file included from encode.c:3:0:
+encode.h:60:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status encode_magic_string(const char *magic_string, EncodeInfo *encInfo);
+        ^~~~~~~~~~~~~~~~~~~
+encode.c:258:25: warning: implicit declaration of function ‘encode_size_of_file_extension’; did you mean ‘encode_size_of_secret_file_extension’? [-Wimplicit-function-declaration]
+                     if (encode_size_of_file_extension(MAX_SECRET_FILE_EXTN, &encInfo) == e_success)
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         encode_size_of_secret_file_extension
+encode.c:263:83: warning: passing argument 2 of ‘encode_secret_file_extn’ from incompatible pointer type [-Wincompatible-pointer-types]
+                         if (encode_secret_file_extn (encInfo -> secret_file_extn, &encInfo) == e_success)
+                                                                                   ^
+In file included from encode.c:3:0:
+encode.h:66:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status encode_secret_file_extn(const char *file_extn, EncodeInfo *encInfo);
+        ^~~~~~~~~~~~~~~~~~~~~~~
+encode.c:267:86: warning: passing argument 2 of ‘encode_secret_file_size’ from incompatible pointer type [-Wincompatible-pointer-types]
+                             if (encode_secret_file_size(encInfo -> secret_file_size, &encInfo) == e_success)
+                                                                                      ^
+In file included from encode.c:3:0:
+encode.h:69:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status encode_secret_file_size(long file_size, EncodeInfo *encInfo);
+        ^~~~~~~~~~~~~~~~~~~~~~~
+encode.c:272:62: warning: passing argument 1 of ‘encode_secret_file_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+                                 if (encode_secret_file_data (&encInfo) == e_success)
+                                                              ^
+In file included from encode.c:3:0:
+encode.h:72:8: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ Status encode_secret_file_data(EncodeInfo *encInfo);
+        ^~~~~~~~~~~~~~~~~~~~~~~
+encode.c: In function ‘check_capacity’:
+encode.c:351:46: warning: passing argument 1 of ‘get_image_size_for_bmp’ from incompatible pointer type [-Wincompatible-pointer-types]
+     uint image_size = get_image_size_for_bmp(&encInfo);
+                                              ^
+encode.c:155:6: note: expected ‘EncodeInfo * {aka struct _EncodeInfo *}’ but argument is of type ‘EncodeInfo ** {aka struct _EncodeInfo **}’
+ long get_image_size_for_bmp(EncodeInfo *encInfo)
+      ^~~~~~~~~~~~~~~~~~~~~~
+encode.c: In function ‘encode_size_of_secret_file_extension’:
+encode.c:409:24: warning: passing argument 3 of ‘fread’ makes integer from pointer without a cast [-Wint-conversion]
+     fread (buffer, 32, encInfo -> fptr_src_image);
+                        ^~~~~~~
+In file included from encode.c:1:0:
+/usr/include/stdio.h:646:15: note: expected ‘size_t {aka long unsigned int}’ but argument is of type ‘FILE * {aka struct _IO_FILE *}’
+ extern size_t fread (void *__restrict __ptr, size_t __size,
+               ^~~~~
+encode.c:409:5: error: too few arguments to function ‘fread’
+     fread (buffer, 32, encInfo -> fptr_src_image);
+     ^~~~~
+In file included from encode.c:1:0:
+/usr/include/stdio.h:646:15: note: declared here
+ extern size_t fread (void *__restrict __ptr, size_t __size,
+               ^~~~~
+encode.c: In function ‘encode_byte_to_lsb’:
+encode.c:500:33: error: invalid operands to binary & (have ‘char *’ and ‘int’)
+         img_buffer = img_buffer & ~(1);
+                                 ^
+encode.c: In function ‘encode_size_to_lsb’:
+encode.c:549:33: error: invalid operands to binary & (have ‘char *’ and ‘int’)
+         img_buffer = img_buffer & ~(1);
+                                 ^
